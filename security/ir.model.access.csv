@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bcy_testnet_submit_usr,bcy.testnet.submit,model_bcy_testnet_submit,group_bcy_user,1,1,1,0
+access_bcy_testnet_submit_mgr,bcy.testnet.submit,model_bcy_testnet_submit,group_bcy_manager,1,1,1,1
+access_bcy_testnet_to_receive_usr,bcy.testnet.to.receive,model_bcy_testnet_to_receive,group_bcy_user,1,1,1,0
+access_bcy_testnet_to_receive_mgr,bcy.testnet.to.receive,model_bcy_testnet_to_receive,group_bcy_manager,1,1,1,1

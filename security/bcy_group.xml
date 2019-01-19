@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="res.groups" id="group_bcy_user">
+        <field name="name">BCY / User</field>
+    </record>
+
+    <record model="res.groups" id="group_bcy_manager">
+        <field name="name">BCY / Manager</field>
+    </record>
+</odoo>

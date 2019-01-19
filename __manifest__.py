@@ -19,7 +19,7 @@
         'views/teste_view.xml',
         'views/action.xml',
         'views/menu.xml',
-        'security/teste_group.xml',
+        'security/bcy_group.xml',
         'security/ir.model.access.csv',
     ],
     'application': True,
