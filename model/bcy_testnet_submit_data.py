@@ -17,3 +17,5 @@ class BCYTestnetSubmit(models.Model):
     date_time = fields.Datetime(string='Date/time', readonly=True)
     satoshi = fields.Integer(string='Satoshi', required=True,
                              attrs="{'readonly': [('state', '=', 'D')]}")
+    address = fields.Char(string='Address', size=34, required=True,
+                          attrs="{'readonly': [('state', '=', 'D')]}")
