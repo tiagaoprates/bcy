@@ -19,6 +19,8 @@ class BCYTestnetSubmitControl(models.Model):
         :return: Hash da transacao realizada
         :rtype: str
         """
+        if self.satoshi <= 0:
+            raise ValidationError('O valor para Satoshis deve ser maior que zero.')
         try:
             datas = send_faucet_coins(address_to_fund=self.address,
                                       satoshis=self.satoshi,
