@@ -9,13 +9,10 @@ class BCYTestnetSubmit(models.Model):
     _name = 'bcy.testnet.submit'
 
     name = fields.Char(string='TX Hash', size=64, readonly=True)
-    token = fields.Char(string='Token', size=32, required=True,
-                        attrs="{'readonly': [('state', '=', 'D')]}")
+    token = fields.Char(string='Token', size=32, required=True)
     state = fields.Selection([('P', 'Pending'), ('D', 'Done')],
                              string='Status', size=1,
                              default='P', readonly=True)
     date_time = fields.Datetime(string='Date/time', readonly=True)
-    satoshi = fields.Integer(string='Satoshi', required=True,
-                             attrs="{'readonly': [('state', '=', 'D')]}")
-    address = fields.Char(string='Address', size=34, required=True,
-                          attrs="{'readonly': [('state', '=', 'D')]}")
+    satoshi = fields.Integer(string='Satoshi', required=True)
+    address = fields.Char(string='Address', size=34, required=True)

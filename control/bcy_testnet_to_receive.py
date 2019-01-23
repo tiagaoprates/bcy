@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models
+from odoo import models, api
+from odoo.exceptions import ValidationError
 from blockcypher import get_transaction_details
 
 
-class BCYTestnetToReceive(models.Model):
+class BCYTestnetToReceiveControl(models.Model):
 
+    _description = 'Classe para recebimento de fracoes de moedas ' \
+                   'na rede testnet'
     _inherit = 'bcy.testnet.to.receive'
 
-    def testnet_coin_receive(self):
+    @api.multi
+    def testnet_receive_coin(self):
         """"
         Metodo para recebimento de coins na rede testnet
         :return: Hash da transacao realizada
@@ -18,11 +22,15 @@ class BCYTestnetToReceive(models.Model):
             datas = get_transaction_details(tx_hash=self.tx_hash,
                                             coin_symbol='bcy')
         except:
-            raise 'Hash da transacao nao identificado.'
+            raise ValidationError('Hash da transacao invalido ou nao '
+                                  'identificado.')
+        if datas.get('error'):
+            raise ValidationError('Transacao nao encontrada.')
         vals = {'name': datas.get('hash')}
-        if self.get('confirmations') >= 2:
+        if datas.get('confirmations') >= 2:
             vals.update({'confirmation': datas.get('confirmations'),
-                         'data_time': str(datas.get('confirmed')),
-                         'state': 'D', 'satoshi': datas.get('outputs')[0].get('value')})
+                         'date_time': str(datas.get('confirmed')),
+                         'state': 'D',
+                         'satoshi': datas.get('outputs')[0].get('value')})
         self.write(vals)
         return datas.get('hash')

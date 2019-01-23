@@ -1,2 +1,2 @@
-from .model import *
-from .control import *
+from . import model
+from . import control
