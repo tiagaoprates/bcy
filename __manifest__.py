@@ -16,9 +16,10 @@
     'depends': ['base'],
 
     'data': [
-        'views/teste_view.xml',
-        'views/action.xml',
-        'views/menu.xml',
+        'view/bcy_testnet_submit_view.xml',
+        'view/bcy_testnet_to_receive_view.xml',
+        'view/action.xml',
+        'view/menu.xml',
         'security/bcy_group.xml',
         'security/ir.model.access.csv',
     ],

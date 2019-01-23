@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.ui.view" id="view_bcy_testnet_to_receive_tree">
+            <field name="name">Receive Tree</field>
+            <field name="model">bcy.testnet.to.receive</field>
+            <field name="arch" type="xml">
+                <tree string="Historic">
+                    <field name="name"/>
+                    <field name="date_time"/>
+                    <field name="confirmation"/>
+                    <field name="satoshi"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_bcy_testnet_to_receive_form">
+            <field name="name">Receive Form</field>
+            <field name="model">bcy.testnet.to.receive</field>
+            <field name="arch" type="xml">
+                <form string="Receive coin">
+                    <header>
+                        <button name="testnet_receive_coin" string="Receive" type="object"
+                                attrs="{'invisible': [('state', '=', 'D')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group colspan="4" col="4">
+                        <field name="tx_hash" attrs="{'readonly': [('state', '=', 'D')]}"/>
+                        <newline/>
+                        <field name="confirmation"/>
+                        <field name="date_time"/>
+                        <field name="satoshi"/>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="ir.ui.view" id="view_bcy_testnet_submit_tree">
+            <field name="name">Submit Tree</field>
+            <field name="model">bcy.testnet.submit</field>
+            <field name="arch" type="xml">
+                <tree string="Historic">
+                    <field name="name"/>
+                    <field name="date_time"/>
+                    <field name="satoshi"/>
+                    <field name="address"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_bcy_testnet_submit_form">
+            <field name="name">Submit Form</field>
+            <field name="model">bcy.testnet.submit</field>
+            <field name="arch" type="xml">
+                <form string="Submit coin">
+                    <header>
+                        <button class="oe_stat_button" name="testnet_coin_submit" string="Submit" type="object"
+                                attrs="{'invisible': [('state', '=', 'D')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group colspan="4" col="4">
+                        <field name="token" password="True" attrs="{'readonly': [('state', '=', 'D')]}"/>
+                        <field name="address" attrs="{'readonly': [('state', '=', 'D')]}"/>
+                        <field name="satoshi" attrs="{'readonly': [('state', '=', 'D')]}"/>
+                        <newline/>
+                        <field name="date_time"/>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+</odoo>

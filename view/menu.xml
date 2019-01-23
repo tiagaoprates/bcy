@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <menuitem name="Blockcypher" id="menu_bcy"/>
+            <menuitem name="Submit coin" id="menu_bcy_testnet_submit" action="action_bcy_testnet_submit"
+                      parent="menu_bcy" sequence="1"/>
+            <menuitem name="Receive coin" id="menu_bcy_testnet_to_receive" action="action_bcy_testnet_to_receive"
+                      parent="menu_bcy" sequence="2"/>
+</odoo>
